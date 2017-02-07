@@ -2,15 +2,16 @@
 
 REVISION=${1}
 
+git checkout master
+git remote update
+git pull
+
 if [ $REVISION ]
 then
-   git checkout master
-   git remote update
-   git pull
    git review -d $REVISION
    git branch
 else
-   echo "Revision number is required!"
+   echo "Revision number is missed, switching on MASTER"
 fi
 
 
